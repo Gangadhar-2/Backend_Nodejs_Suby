@@ -1,6 +1,7 @@
 const Firm = require('../models/Firm');
 const Vendor = require('../models/Vendor');
 const multer = require('multer');
+const path = require('path')
 
 const storage = multer.diskStorage({
         destination: function (req, file, cb) {
@@ -18,7 +19,6 @@ const addFirm = async (req, res) => {
         const { firmName,area,category,region,offer} = req.body;
 
         const image = req.file ? req.file.filename : undefined;
-
 
         const vendor = await Vendor.findById(req.vendorId);
 
